@@ -20,12 +20,17 @@ public class UserService {
 
     public Users register(Users user){
 
+
         user.setPassword(encoder.encode(user.getPassword()));
        return repo.save(user);
     }
 
     public List<Users> getUsers(){
         return repo.findAll();
+    }
+
+    public void deleteUser(int id){
+         repo.deleteById(id);
     }
 
 
